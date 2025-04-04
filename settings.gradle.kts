@@ -9,6 +9,16 @@ pluginManagement {
         }
         mavenCentral()
         gradlePluginPortal()
+
+        mavenCentral() {
+            content {
+                includeGroup("com.google.dagger")
+                includeGroup("com.google.dagger.hilt.android")
+            }
+            mavenContent {
+                releasesOnly()
+            }
+        }
     }
 }
 dependencyResolutionManagement {
@@ -24,3 +34,5 @@ include(":app")
 
 include(":feature:detail")
 include(":feature:home")
+
+include(":core:navigation")

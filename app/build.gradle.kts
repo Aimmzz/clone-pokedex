@@ -5,6 +5,7 @@ plugins {
     alias(libs.plugins.hilt.plugin)
     alias(libs.plugins.ksp)
     alias(libs.plugins.kotlin.parcelize)
+    alias(libs.plugins.kotlinx.serialization)
 }
 
 android {
@@ -39,6 +40,10 @@ android {
     }
     buildFeatures {
         compose = true
+    }
+
+    hilt {
+        enableAggregatingTask = true
     }
 }
 
