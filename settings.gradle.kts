@@ -36,3 +36,4 @@ include(":feature:detail")
 include(":feature:home")
 
 include(":core:navigation")
+include(":core:designsystem")

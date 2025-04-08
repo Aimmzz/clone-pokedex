@@ -2,18 +2,14 @@ plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
     alias(libs.plugins.kotlin.compose)
-    alias(libs.plugins.hilt.plugin)
-    alias(libs.plugins.ksp)
-    alias(libs.plugins.kotlin.parcelize)
-    alias(libs.plugins.kotlinx.serialization)
 }
 
 android {
-    namespace = "com.aimcode.clonepokedex"
+    namespace = "com.aimcode.designsystem"
     compileSdk = 35
 
     defaultConfig {
-        applicationId = "com.aimcode.clonepokedex"
+        applicationId = "com.aimcode.designsystem"
         minSdk = 24
         targetSdk = 35
         versionCode = 1
@@ -41,15 +37,20 @@ android {
     buildFeatures {
         compose = true
     }
-
-    hilt {
-        enableAggregatingTask = true
+    tasks.withType<org.jetbrains.kotlin.gradle.tasks.KotlinCompile>().configureEach {
+        kotlinOptions {
+            freeCompilerArgs += "-Xcontext-receivers"
+        }
     }
 }
 
 dependencies {
 
-    implementation(project(":core:navigation"))
+    api(libs.landscapist.glide)
+    api(libs.landscapist.animation)
+
+    api(libs.androidx.ui)
+    api(libs.androidx.compose.animation)
 
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.lifecycle.runtime.ktx)
@@ -66,9 +67,4 @@ dependencies {
     androidTestImplementation(libs.androidx.ui.test.junit4)
     debugImplementation(libs.androidx.ui.tooling)
     debugImplementation(libs.androidx.ui.test.manifest)
-
-    // di
-    implementation(libs.hilt.android)
-    ksp(libs.hilt.compiler)
-    kspAndroidTest(libs.hilt.compiler)
 }
