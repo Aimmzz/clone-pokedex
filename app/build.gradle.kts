@@ -42,6 +42,12 @@ android {
         compose = true
     }
 
+    tasks.withType<org.jetbrains.kotlin.gradle.tasks.KotlinCompile>().configureEach {
+        kotlinOptions {
+            freeCompilerArgs += "-Xcontext-receivers"
+        }
+    }
+
     hilt {
         enableAggregatingTask = true
     }
@@ -50,6 +56,7 @@ android {
 dependencies {
 
     implementation(project(":core:navigation"))
+    implementation(project(":core:designsystem"))
 
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.lifecycle.runtime.ktx)
