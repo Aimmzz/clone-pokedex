@@ -2,11 +2,10 @@ plugins {
     alias(libs.plugins.android.library)
     alias(libs.plugins.kotlin.android)
     alias(libs.plugins.ksp)
-    alias(libs.plugins.hilt.plugin)
 }
 
 android {
-    namespace = "com.aimcode.data"
+    namespace = "com.aimcode.database"
     compileSdk = 35
 
     defaultConfig {
@@ -45,16 +44,19 @@ dependencies {
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
 
-    api(libs.kotlinx.immutable.collection)
-
-    // coroutines
-    implementation(libs.kotlinx.coroutines.android)
-
-    // network
-    implementation(libs.sandwich)
-
     // di
     implementation(libs.hilt.android)
     ksp(libs.hilt.compiler)
     kspAndroidTest(libs.hilt.compiler)
+
+    // coroutines
+    implementation(libs.kotlinx.coroutines.android)
+
+    // database
+    implementation(libs.androidx.room.runtime)
+    implementation(libs.androidx.room.ktx)
+    ksp(libs.androidx.room.compiler)
+
+    // json parsing
+    implementation(libs.kotlinx.serialization.json)
 }

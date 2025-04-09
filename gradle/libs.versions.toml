@@ -25,6 +25,7 @@ kotlinxSerializationJson = "1.7.3"
 paletteKtx = "1.0.0"
 sandwich = "2.0.10"
 androidxArchCore = "2.2.0"
+kotlinxImmutable = "0.3.7"
 
 [libraries]
 
@@ -90,6 +91,8 @@ androidx-ui-test-junit4 = { group = "androidx.compose.ui", name = "ui-test-junit
 androidx-appcompat = { group = "androidx.appcompat", name = "appcompat", version.ref = "appcompat" }
 material = { group = "com.google.android.material", name = "material", version.ref = "material" }
 androidx-palette-ktx = { group = "androidx.palette", name = "palette-ktx", version.ref = "paletteKtx" }
+
+kotlinx-immutable-collection = { group = "org.jetbrains.kotlinx", name = "kotlinx-collections-immutable", version.ref = "kotlinxImmutable" }
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }
